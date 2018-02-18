@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <h2>Esta es mi lista de Productos</h2>
+  <% productos.forEach(almanaque => {%>
+    <p>
+      <%= `- ${almanaque.estado} el siguiente producto: ${almanaque.producto}, con un coste de ${almanaque.precio}€` %>
+    </p>
+    <% })  %>
+</body>
+
+</html>
