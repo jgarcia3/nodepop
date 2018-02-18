@@ -7,14 +7,14 @@ const json = JSON.parse(
   fs.readFileSync(__dirname + "/productos.json", "utf-8")
 );
 
-loadMeetings(json.productos).catch(err => console.log(err));
+loadProductos(json.productos).catch(err => console.log(err));
 
-async function loadMeetings(productos) {
+async function loadProductos(productos) {
   try {
-    await Anuncio.remove();
+    await Producto.remove();
     console.log("Productos borrados.");
 
-    await Anuncio.insertMany(productos);
+    await Producto.insertMany(productos);
     console.log("Productos cargados.");
 
     console.log("Hecho!");

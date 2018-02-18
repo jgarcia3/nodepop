@@ -5,7 +5,9 @@ const mongoose = require("mongoose");
 const productoSchema = mongoose.Schema({
   producto: { type: String, index: true },
   estado: { type: String, index: true },
-  precio: Number
+  precio: Number,
+  foto: { type: String, index: true },
+  tags: { type: String, index: true }
 });
 
 productoSchema.statics.listar = function(

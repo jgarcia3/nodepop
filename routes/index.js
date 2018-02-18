@@ -8,69 +8,148 @@ router.get("/", function(req, res, next) {
   //res.render("index", { title: "Nodepop" });
 
   res.locals.productos = [
-    { producto: "pelota", estado: "Se vende", precio: 5 },
-    { producto: "camiseta", estado: "Se busca", precio: 15 },
-    { producto: "gafas", estado: "Se vende", precio: 25 },
-    { producto: "dados", estado: "Se busca", precio: 3 },
-    { producto: "cubo", estado: "Se vende", precio: 7 },
-    { producto: "marioneta", estado: "Se busca", precio: 10 },
-    { producto: "regla", estado: "Se vende", precio: 5 },
-    { producto: "chaqueta", estado: "Se busca", precio: 25 },
-    { producto: "linterna", estado: "Se busca", precio: 5 },
-    { producto: "paraguas", estado: "Se vende", precio: 15 }
+    {
+      producto: "Subaru",
+      venta: false,
+      precio: 2754,
+      foto: "Cras.gif",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Ford",
+      venta: true,
+      precio: 2917,
+      foto: "EtiamJustoEtiam.jpeg",
+      tags: ["lifestyle", "work"]
+    },
+    {
+      producto: "Lexus",
+      venta: true,
+      precio: 2279,
+      foto: "Nulla.jpeg",
+      tags: ["work", "motor"]
+    },
+    {
+      producto: "Pontiac",
+      venta: true,
+      precio: 899,
+      foto: "Tortor.png",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Chevrolet",
+      venta: true,
+      precio: 943,
+      foto: "Semper.gif",
+      tags: ["work", "mobile"]
+    },
+    {
+      producto: "BMW",
+      venta: false,
+      precio: 855,
+      foto: "VelNullaEget.png",
+      tags: ["lifestyle", "mobile"]
+    },
+    {
+      producto: "Volkswagen",
+      venta: true,
+      precio: 1871,
+      foto: "AugueVelAccumsan.tiff",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Chevrolet",
+      venta: false,
+      precio: 3521,
+      foto: "DictumstMaecenasUt.tiff",
+      tags: ["work", "motor"]
+    },
+    {
+      producto: "Toyota",
+      venta: true,
+      precio: 4840,
+      foto: "AFeugiatEt.jpeg",
+      tags: ["mobile", "motor"]
+    },
+    {
+      producto: "Hyundai",
+      venta: true,
+      precio: 1853,
+      foto: "Feugiat.gif",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Mitsubishi",
+      venta: true,
+      precio: 2368,
+      foto: "IdLigulaSuspendisse.tiff",
+      tags: ["work", "mobile"]
+    },
+    {
+      producto: "Ford",
+      venta: true,
+      precio: 3901,
+      foto: "LacusCurabitur.jpeg",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Nissan",
+      venta: true,
+      precio: 918,
+      foto: "SedSagittisNam.jpeg",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Chevrolet",
+      venta: true,
+      precio: 4693,
+      foto: "Iaculis.jpeg",
+      tags: ["work", "motor"]
+    },
+    {
+      producto: "Pontiac",
+      venta: true,
+      precio: 1799,
+      foto: "AcConsequat.png",
+      tags: ["work", "mobile"]
+    },
+    {
+      producto: "Toyota",
+      venta: true,
+      precio: 2177,
+      foto: "PedeMalesuadaIn.jpeg",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Honda",
+      venta: true,
+      precio: 560,
+      foto: "AdipiscingLoremVitae.png",
+      tags: ["lifestyle", "motor"]
+    },
+    {
+      producto: "Honda",
+      venta: false,
+      precio: 4769,
+      foto: "RutrumAt.gif",
+      tags: ["work", "motor"]
+    },
+    {
+      producto: "Chevrolet",
+      venta: false,
+      precio: 2464,
+      foto: "TempusSemperEst.jpeg",
+      tags: ["mobile", "motor"]
+    },
+    {
+      producto: "Porsche",
+      venta: true,
+      precio: 2477,
+      foto: "AmetErosSuspendisse.tiff",
+      tags: ["lifestyle", "mobile"]
+    }
   ];
   res.render("index");
-});
-
-router.get(
-  "/param/:id([0-9]+)/producto/:producto/coste/:coste",
-  (req, res, next) => {
-    console.log("req.params", req.params);
-    res.send(
-      `El ID ${req.params.id}, corresponde al producto ${
-        req.params.producto
-      }, y tiene un coste de ${req.params.coste} €`
-    );
-  }
-);
-
-router.get(
-  "/enquerystring",
-  [
-    query("coste")
-      .isNumeric()
-      .withMessage("Debería ser un número")
-      .custom(value => {
-        if (value < 15) {
-          throw new Error("Debe costar más de 15€");
-        }
-        return true;
-      })
-  ],
-  (req, res, next) => {
-    validationResult(req).throw();
-    console.log("req.query", req.query);
-    const id = req.query.id;
-    const producto = req.query.producto;
-    const coste = req.query.coste;
-    res.send(
-      `${req.query.estado} el siguiente producto producto ${
-        req.query.producto
-      }, con un coste de ${req.query.coste} €`
-    );
-  }
-);
-
-router.post("/enelbody", (req, res, next) => {
-  console.log("req.body", req.body);
-  const id = req.body.id;
-  const producto = req.body.producto;
-  const coste = req.body.coste;
-  res.send(
-    `El ID ${req.body.id}, corresponde al producto ${
-      req.body.producto
-    }, y tiene un coste de ${req.body.coste} €`
-  );
 });
 
 module.exports = router;

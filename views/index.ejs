@@ -10,10 +10,10 @@
 
 <body>
 
-  <h2>Esta es mi lista de Productos</h2>
+  <h2>Esta es la lista de Productos</h2>
   <% productos.forEach(almanaque => {%>
     <p>
-      <%= `- ${almanaque.estado} el siguiente producto: ${almanaque.producto}, con un coste de ${almanaque.precio}€` %>
+      <%= `- ${almanaque.foto}:se trata de un ${almanaque.producto}, tiene un coste de ${almanaque.precio}€, y se le puede englobar en las siguientes categorías: ${almanaque.tags}` %>
     </p>
     <% })  %>
 </body>
